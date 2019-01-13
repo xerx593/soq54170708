@@ -27,10 +27,9 @@ public class Application {
     @Bean
     public CommandLineRunner demo(ARepository repository, BRepository bRepo, TransactionalService txClass) {
         return (args) -> {
-
+            //adds 1 A with 10 B's (associated)
             txClass.doAddWork();
-
-            // fetch all customers
+            // test findAll
             LOG.info("A found with findAll():");
             LOG.info("-------------------------------");
             for (A a : repository.findAll()) {
@@ -38,7 +37,7 @@ public class Application {
             }
             LOG.info("");
 
-            // fetch an individual customer by ID
+            // test find1
             repository.findById(1L)
                     .ifPresent(lA -> {
                         LOG.info("A found with findById(1L):");
@@ -46,35 +45,24 @@ public class Application {
                         LOG.info(lA.toString());
                         LOG.info("");
                     });
-            // fetch all customers
-            LOG.info("B found with findAll():");
-            LOG.info("-------------------------------");
-            for (B b : bRepo.findAll()) {
-                LOG.info(b.toString());
-                LOG.info(b.getSomeString());
-                LOG.info("a_id: {}", b.getA().getId());
-            }
-            LOG.info("");
+            logBs(bRepo.findAll());
             txClass.modifyOne();
             LOG.info("");
-            LOG.info("B found with findAll():");
-            LOG.info("-------------------------------");
-            for (B b : bRepo.findAll()) {
-                LOG.info(b.toString());
-                LOG.info(b.getSomeString());
-                LOG.info("a_id: {}", b.getA().getId());
-            }
-            LOG.info("");
+            logBs(bRepo.findAll());
             txClass.modifyAll();
             LOG.info("");
-            LOG.info("B found with findAll():");
-            LOG.info("-------------------------------");
-            for (B b : bRepo.findAll()) {
-                LOG.info(b.toString());
-                LOG.info(b.getSomeString());
-                LOG.info("a_id: {}", b.getA().getId());
-            }
-            LOG.info("");
+            logBs(bRepo.findAll());
         };
+    }
+
+    private void logBs(Iterable<B> bs) {
+        LOG.info("B found with findAll():");
+        LOG.info("-------------------------------");
+        for (B b : bs) {
+            LOG.info(b.toString());
+            LOG.info(b.getSomeString());
+            LOG.info("a_id: {}", b.getA().getId());
+        }
+        LOG.info("");
     }
 }
