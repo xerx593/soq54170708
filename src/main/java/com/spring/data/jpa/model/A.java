@@ -12,7 +12,7 @@ import javax.persistence.OneToMany;
 
 /**
  *
- * @author Alexander Lutz, alexlutz79@gmail.com
+ * @author xerx593
  */
 @Entity
 public class A {

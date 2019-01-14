@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 
 /**
  *
- * @author Alexander Lutz, alexlutz79@gmail.com
+ * @author xerx593
  */
 @Service
 @Transactional(rollbackOn = Exception.class)

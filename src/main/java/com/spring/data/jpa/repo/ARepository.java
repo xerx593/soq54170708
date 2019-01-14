@@ -5,7 +5,7 @@ import org.springframework.data.repository.CrudRepository;
 
 /**
  *
- * @author Alexander Lutz, alexlutz79@gmail.com
+ * @author xerx593
  */
 public interface ARepository extends CrudRepository<A, Long> {
 

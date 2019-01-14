@@ -13,7 +13,7 @@ import org.springframework.context.annotation.Bean;
 
 /**
  *
- * @author Alexander Lutz, alexlutz79@gmail.com
+ * @author xerx593
  */
 @SpringBootApplication
 public class Application {

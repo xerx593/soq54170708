@@ -1,7 +1,6 @@
 package com.spring.data.jpa.model;
 
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -10,7 +9,7 @@ import javax.persistence.ManyToOne;
 
 /**
  *
- * @author Alexander Lutz, alexlutz79@gmail.com
+ * @author xerx593
  */
 @Entity
 public class B {
